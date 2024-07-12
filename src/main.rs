@@ -20,16 +20,6 @@ fn main() -> io::Result<()> {
     framebuffer.set_current_color(0xFFFF0000);  // Rojo opaco
 
 
-    // Dibuja un polígono
-    let points = vec![
-        Vector3::new(10.0, 10.0, 0.0),
-        Vector3::new(10.0, 90.0, 0.0),
-        Vector3::new(90.0, 90.0, 0.0),
-        Vector3::new(90.0, 10.0, 0.0),
-    ];
-    framebuffer.draw_polygon(&points);
-    framebuffer.fill_polygon(&points, 0xFF00FF00);
-
     // Guardar como archivo BMP
     let filename = "prueba2.bmp";
     write_bmp_file(filename, width as u32, height as u32, &framebuffer.buffer)?;
