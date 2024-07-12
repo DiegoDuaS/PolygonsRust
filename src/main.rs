@@ -19,7 +19,6 @@ fn main() -> io::Result<()> {
     framebuffer.clear();
     framebuffer.set_current_color(0xFFFF0000);  // Rojo opaco
 
-
     // Guardar como archivo BMP
     let filename = "prueba2.bmp";
     write_bmp_file(filename, width as u32, height as u32, &framebuffer.buffer)?;
