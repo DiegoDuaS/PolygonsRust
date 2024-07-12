@@ -17,7 +17,18 @@ fn main() -> io::Result<()> {
 
     // Dibujar algo en el framebuffer
     framebuffer.clear();
-    framebuffer.set_current_color(0xFFFF0000);  // Rojo opaco
+
+    let points = vec![
+        Vec3::new(321.0, 335.0, 0.0),
+        Vec3::new(288.0, 286.0, 0.0),
+        Vec3::new(339.0, 251.0, 0.0),
+        Vec3::new(374.0, 302.0, 0.0),
+    ];
+
+    framebuffer.set_current_color(0xFF0000FF);  
+    framebuffer.fill_polygon(&points, 0xFF0000FF);
+    framebuffer.set_current_color(0xFFFFFFFF);  
+    framebuffer.draw_polygon(&points);
 
 
     // Guardar como archivo BMP
