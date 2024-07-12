@@ -18,21 +18,23 @@ fn main() -> io::Result<()> {
     // Dibujar algo en el framebuffer
     framebuffer.clear();
 
-    let points = vec![
-        Vec3::new(321.0, 335.0, 0.0),
-        Vec3::new(288.0, 286.0, 0.0),
-        Vec3::new(339.0, 251.0, 0.0),
-        Vec3::new(374.0, 302.0, 0.0),
-    ];
+   // Dibuja un polígono
+   let points2 = vec![
+    Vector3::new(321.0, 335.0, 0.0),
+    Vector3::new(288.0, 286.0, 0.0),
+    Vector3::new(339.0, 251.0, 0.0),
+    Vector3::new(374.0, 302.0, 0.0),
+];
 
-    framebuffer.set_current_color(0xFF0000FF);  
-    framebuffer.fill_polygon(&points, 0xFF0000FF);
+    framebuffer.set_current_color(0xFF0000FF);
+    framebuffer.fill_polygon(&points2, 0xFF0000FF);
+
     framebuffer.set_current_color(0xFFFFFFFF);  
-    framebuffer.draw_polygon(&points);
+    framebuffer.draw_polygon(&points2);
 
 
     // Guardar como archivo BMP
-    let filename = "prueba2.bmp";
+    let filename = "polygon1.bmp";
     write_bmp_file(filename, width as u32, height as u32, &framebuffer.buffer)?;
 
     println!("Archivo BMP generado: {}", filename);
